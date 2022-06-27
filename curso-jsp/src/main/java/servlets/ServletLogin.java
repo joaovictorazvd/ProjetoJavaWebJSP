@@ -22,17 +22,29 @@ public class ServletLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String login = request.getParameter("nome");
-		String senha = request.getParameter("idade");
+		String login = request.getParameter("login");
+		String senha = request.getParameter("senha");
 
-		if ((login != null && !login.isEmpty()) && (senha != null && !senha.isEmpty())) {
+		if (login != null && !login.isEmpty() && senha != null && !senha.isEmpty()) {
 			ModelLogin modelLogin = new ModelLogin();
 			modelLogin.setLogin(login);
 			modelLogin.setSenha(senha);
-		}
-		else {
+
+			if (modelLogin.getLogin().equalsIgnoreCase("admin") && modelLogin.getSenha().equalsIgnoreCase("admin")) {
+
+				request.getSession().setAttribute("usuario", modelLogin.getLogin());
+				RequestDispatcher redirecionar = request.getRequestDispatcher("principal/principal.jsp");
+				redirecionar.forward(request, response);
+
+			} else {
+				RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
+				request.setAttribute("msg", "Informe o login e a senha corretamente");
+				redirecionar.forward(request, response);
+			}
+
+		} else {
 			RequestDispatcher redirecionar = request.getRequestDispatcher("index.jsp");
-			request.setAttribute("msg", "Informe o login e a senha corretamente");
+			request.setAttribute("msg", "login e senha vazios");
 			redirecionar.forward(request, response);
 		}
 	}
