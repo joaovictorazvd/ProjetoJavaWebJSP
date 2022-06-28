@@ -17,7 +17,7 @@ public class DAOLoginRepository {
 
 	public boolean validarAutenticacao(ModelLogin modelLogin) throws Exception {
 
-		String sql = "SELECT * FROM MODEL_LOGIN WHERE LOGIN = ? AND SENHA = ?";
+		String sql = "SELECT * FROM MODEL_LOGIN WHERE UPPER(LOGIN) = UPPER(?) AND UPPER(SENHA) = UPPER(?)";
 
 		PreparedStatement statement = connection.prepareStatement(sql);
 
