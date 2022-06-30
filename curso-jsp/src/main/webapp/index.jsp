@@ -53,7 +53,7 @@ h4 {
 		<div class="col-md-6">
 			<label class="form-label">Senha</label> <input class="form-control"
 				name="senha" type="password" required="required">
-			<div class="valid-feedback">!</div>
+			<div class="valid-feedback">Ok!</div>
 			<div class="invalid-feedback">Obrigatório!</div>
 		</div>
 		<input type="submit" value="Enviar" class="btn btn-primary">
