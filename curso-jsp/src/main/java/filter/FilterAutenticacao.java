@@ -14,6 +14,7 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = { "/principal/*" }) /* Intercepta todas as requisições que vinherem do projeto */
 public class FilterAutenticacao implements Filter {
@@ -37,7 +38,7 @@ public class FilterAutenticacao implements Filter {
 		chain.doFilter(request, response);
 		try {
 			HttpServletRequest req = (HttpServletRequest) request;
-			HttpServletRequest session = (HttpServletRequest) req.getSession();
+			HttpSession session = req.getSession();
 
 			String usuarioLogado = (String) session.getAttribute("usuario");
 			String urlParaAutenticar = req.getServletPath();
