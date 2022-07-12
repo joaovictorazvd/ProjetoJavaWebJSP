@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+.testecss{
+	background: red;
+	padding: 1rem 1rem auto;
+	animation: teste 2s ease-in-out forwards;
+}
+
+@keyframes teste{
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

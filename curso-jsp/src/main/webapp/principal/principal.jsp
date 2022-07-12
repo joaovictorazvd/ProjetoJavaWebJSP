@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="./styles.css" />
 
 <jsp:include page="head.jsp"></jsp:include>
 
@@ -27,7 +28,7 @@
 									<!-- Page-body start -->
 									<div class="page-body">
 										<div class="row">
-											<h1>Conteudo da pagina</h1>
+											<h1 class="testecss">Conteudo da pagina</h1>
 										</div>
 									</div>
 									<!-- Page-body end -->
